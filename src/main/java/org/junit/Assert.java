@@ -1019,4 +1019,16 @@ public class Assert {
                 expectedThrowable.getSimpleName());
         throw new AssertionError(message);
     }
+    
+    // Should work for every type of number from byte to double (upcasting without loosing precision)
+    public static void assertGreaterThan(double o1, double o2) {
+        if(o1 <= o2)
+            fail(null);
+    }
+    
+    public static void assertGreaterThan(String o1, String o2) {
+        if(o2.compareTo(o1) <= 0)
+            fail(null);
+    }
+    
 }

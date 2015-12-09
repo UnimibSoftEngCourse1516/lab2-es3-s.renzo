@@ -12,6 +12,7 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.expectThrows;
+import static org.junit.Assert.assertGreaterThan;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
@@ -752,5 +753,40 @@ public class AssertionTest {
                 throw t;
             }
         };
+    }
+    
+    @Test
+    public void checkGreaterThan() {
+        byte b1 = 2, b2 = 3;
+        
+        assertGreaterThan(b2, b1);
+        
+        short s1 = 2, s2 = 3;
+        
+        assertGreaterThan(s2, s1);
+        
+        int i1 = 2, i2 = 3;
+        
+        assertGreaterThan(i2, i1);
+        
+        long l1 = 2, l2 = 3;
+        
+        assertGreaterThan(l2, l1);
+        
+        float f1 = 2.1f, f2 = 3.2f;
+        
+        assertGreaterThan(f2, f1);
+        
+        double d1 = 2.2f, d2 = 3.3f;
+        
+        assertGreaterThan(d2, d1);
+        
+        char c1 = 'a', c2 = 'b';
+        
+        assertGreaterThan(c2, c1);
+        
+        String str1 = "abc", str2 = "abcde";
+        
+        assertGreaterThan(str1, str2);
     }
 }
