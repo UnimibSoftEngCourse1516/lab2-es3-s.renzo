@@ -1024,4 +1024,16 @@ public class Assert {
         if(comparator.compare(o1, o2) <= 0)
             fail(null);
     }
+
+    // Should work for every type of number from byte to double (upcasting without loosing precision)
+    public static void assertGreaterThanPrimitive(double o1, double o2) {
+        if(o1 <= o2)
+            fail(null);
+    }
+    
+    public static void assertGreaterThanPrimitive(String o1, String o2) {
+        if(o2.compareTo(o1) <= 0)
+            fail(null);
+    }
+
 }

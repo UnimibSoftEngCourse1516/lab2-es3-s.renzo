@@ -13,6 +13,7 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.expectThrows;
 import static org.junit.Assert.assertGreaterThan;
+import static org.junit.Assert.assertGreaterThanPrimitive;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
@@ -764,6 +765,38 @@ public class AssertionTest {
         
         // Testing if o2 is greater than o1 based on my own comparator
         assertGreaterThan(o2, o1, comparator);
+        
+        byte b1 = 2, b2 = 3;
+        
+        assertGreaterThanPrimitive(b2, b1);
+        
+        short s1 = 2, s2 = 3;
+        
+        assertGreaterThanPrimitive(s2, s1);
+        
+        int i1 = 2, i2 = 3;
+        
+        assertGreaterThanPrimitive(i2, i1);
+        
+        long l1 = 2, l2 = 3;
+        
+        assertGreaterThanPrimitive(l2, l1);
+        
+        float f1 = 2.1f, f2 = 3.2f;
+        
+        assertGreaterThanPrimitive(f2, f1);
+        
+        double d1 = 2.2f, d2 = 3.3f;
+        
+        assertGreaterThanPrimitive(d2, d1);
+        
+        char c1 = 'a', c2 = 'b';
+        
+        assertGreaterThanPrimitive(c2, c1);
+        
+        String str1 = "abc", str2 = "abcde";
+        
+        assertGreaterThanPrimitive(str1, str2);
     }
     
     public class MyComparator implements Comparator<Integer> {
