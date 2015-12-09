@@ -12,10 +12,12 @@ import static org.junit.Assert.assertSame;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.assertTrue;
 import static org.junit.Assert.expectThrows;
+import static org.junit.Assert.assertGreaterThan;
 import static org.junit.Assert.fail;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.util.Comparator;
 
 import org.junit.Assert;
 import org.junit.Assert.ThrowingRunnable;
@@ -752,5 +754,28 @@ public class AssertionTest {
                 throw t;
             }
         };
+    }
+    
+    @Test
+    public void checkGreaterThan() {
+        Integer o1 = new Integer(10);
+        Integer o2 = new Integer(20);
+        MyComparator comparator = new MyComparator();
+        
+        // Testing if o2 is greater than o1 based on my own comparator
+        assertGreaterThan(o2, o1, comparator);
+    }
+    
+    public class MyComparator implements Comparator<Integer> {
+
+        public int compare(Integer o1, Integer o2) {
+            if(o1.intValue() > o2.intValue())
+                return 1;
+            else if(o1.intValue() == o2.intValue())
+                return 0;
+            else
+                return -1;
+        }
+        
     }
 }
